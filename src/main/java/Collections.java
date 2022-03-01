@@ -6,8 +6,7 @@ public class Collections {
      HashSet<Integer> set = new HashSet<>();
      Deque<Object> queue = new ArrayDeque<>();
 
-    public int maximumNumberUniqueIntegers(int subArraySize, int[] array) {
-        int intNumber = array.length;
+    public int maximumNumberUniqueIntegers(int intNumber, int subArraySize, int[] array) {
         for (int i = 0; i < intNumber; i++){
             queue.add(array[i]);
         }
