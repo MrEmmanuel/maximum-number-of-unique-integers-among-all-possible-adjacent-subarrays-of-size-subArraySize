@@ -3,21 +3,20 @@ import java.util.*;
 public class Collections {
 
     Deque<Integer> deque = new ArrayDeque<>();
-    HashSet<Integer> setOfInt = new HashSet<>();
 
-    public int maxUniqueIntegers(int intNumber, int subArraySize, Deque<Integer> integerDeque) {
+    public long maxUniqueIntegers(int intNumber, int subArraySize, Deque<Integer> integerDeque) {
 
-        int max = Integer.MIN_VALUE;
+        long max = 0;
+        long countUnique;
         for (int i = 0; i < intNumber; i++) {
             int input = integerDeque.pop();
-
             deque.add(input);
-            setOfInt.add(input);
-
             if (deque.size() == subArraySize) {
-                if (setOfInt.size() > max) max = setOfInt.size();
-                int first = deque.remove();
-                if (!deque.contains(first)) setOfInt.remove(first);
+                countUnique = deque.stream().distinct().count();
+                if(countUnique >= max){
+                    max = countUnique;
+                }
+                deque.removeFirst();
             }
         }
         return max;
