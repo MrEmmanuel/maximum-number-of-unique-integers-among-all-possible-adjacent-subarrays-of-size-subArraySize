@@ -5,11 +5,11 @@ public class Collections {
     Deque<Integer> deque = new ArrayDeque<>();
     HashSet<Integer> setOfInt = new HashSet<>();
 
-    public int maxUniqueIntegers(int intNumber, int subArraySize, int[] array) {
+    public int maxUniqueIntegers(int intNumber, int subArraySize, Deque<Integer> integerDeque) {
 
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < intNumber; i++) {
-            int input = array[i];
+            int input = integerDeque.pop();
 
             deque.add(input);
             setOfInt.add(input);
